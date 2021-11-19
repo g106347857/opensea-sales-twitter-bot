@@ -38,7 +38,7 @@ function formatAndSendTweet(event) {
     return tweet.tweet(tweetText);
 }
 
-// Poll OpenSea every 60 seconds & retrieve all sales for a given collection in either the time since the last sale OR in the last minute
+// Poll OpenSea every 300 seconds & retrieve all sales for a given collection in either the time since the last sale OR in the last minute
 setInterval(() => {
     const lastSaleTime = cache.get('lastSaleTime', null) || moment().startOf('minute').subtract(59, "seconds").unix();
 
@@ -72,4 +72,4 @@ setInterval(() => {
     }).catch((error) => {
         console.error(error);
     });
-}, 60000);
+}, 300000);
