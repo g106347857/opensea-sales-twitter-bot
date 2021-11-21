@@ -49,7 +49,8 @@ setInterval(() => {
             collection_slug: process.env.OPENSEA_COLLECTION_SLUG,
             event_type: 'successful',
             occurred_after: lastSaleTime,
-            only_opensea: 'false'
+            only_opensea: 'false',
+            'X-API-KEY': process.env.OPENSEA_API_KEY
         }
     }).then((response) => {
         const events = _.get(response, ['data', 'asset_events']);
